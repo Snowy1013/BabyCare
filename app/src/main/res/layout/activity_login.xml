@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         android:text="登录"
         android:textSize="22sp"/>
@@ -47,16 +47,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:paddingBottom="20dp"
                 android:inputType="phone"
-                android:hint="请输入手机号"/>
+                android:hint="请输入手机号"
+                android:textSize="16dp"/>
             <EditText
                 android:id="@+id/et_pwd_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
+                android:paddingBottom="20dp"
                 android:inputType="textPassword"
-                android:hint="请输入密码"/>
+                android:hint="请输入密码"
+                android:textSize="16dp"/>
         </LinearLayout>
         <Button
             android:id="@+id/btn_denglu_login"
@@ -79,14 +83,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="忘记密码"
-            android:background="@drawable/btn_in_main"/>
+            android:background="@drawable/btn_in_signup"/>
         <Button
             android:id="@+id/btn_sign_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="  注册  "
-            android:background="@drawable/btn_in_main"/>
+            android:background="@drawable/btn_in_signup"/>
     </RelativeLayout>
 
 </RelativeLayout>

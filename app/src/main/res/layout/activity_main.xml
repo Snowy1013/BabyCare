@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:background="#E0FFFF">
+            android:background="#BFEFFF">
             <!--必须有android:layout_gravity="left"，才能有侧拉的效果，否则没有，left或start表示从左边出来-->
             <Button
                 android:id="@+id/btn_login"

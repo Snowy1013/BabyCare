@@ -1,6 +1,7 @@
 package com.snowy.babycare.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         int id = v.getId();
+        Intent intent = new Intent();
         switch (id){
             case R.id.back_login:
                 finish();
@@ -55,16 +57,25 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 //登录
                 String phone = et_phone_login.getText().toString();
                 String pwd = et_pwd_login.getText().toString();
-                Toast.makeText(this, "phone=" + phone + "; " +
-                        "pwd=" + pwd, Toast.LENGTH_SHORT).show();
+                if(phone.equals("")){
+                    Toast.makeText(this, "请输入您的账号", Toast.LENGTH_SHORT).show();
+                }else if(pwd.equals("")){
+                    Toast.makeText(this, "请输入您的密码", Toast.LENGTH_SHORT).show();
+                }else {
+                    //TODO
+                    Toast.makeText(this, "phone=" + phone + "; " +
+                            "pwd=" + pwd, Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btn_forget_pwd:
                 //忘记密码
-                Toast.makeText(this, "忘记密码", Toast.LENGTH_SHORT).show();
+                intent.setClass(this, ForgetPwdActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_sign_login:
                 //注册
-                Toast.makeText(this, "注册", Toast.LENGTH_SHORT).show();
+                intent.setClass(this, SignupActivity.class);
+                startActivity(intent);
                 break;
         }
     }
