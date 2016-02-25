@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.snowy.babycare.R;
 import com.snowy.babycare.fragment.FindContentFragment;
@@ -29,6 +31,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private LiveContentFragment liveContentFragment;
     private ShopContentFragment shopContentFragment;
     private FindContentFragment findContentFragment;
+
+    private long exitTime = 0;//返回键两次按下的时间差
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,5 +188,34 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
         }
         fragmentTransaction.commit();
+    }
+
+    /**
+     * 捕捉按键的操作
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //两次按下返回键退出程序
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0){ //getRepeatCount什么意思？
+            //判断时间间隔，小于2秒则退出程序
+            long curTime = System.currentTimeMillis();
+            if(curTime - exitTime > 2000){
+                String msg = "再按一次退出程序";
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+                exitTime = curTime;
+            }else {
+                //小于2秒退出程序
+                finish();
+                //返回桌面操作
+                /*Intent home = new Intent(Intent.ACTION_MAIN);
+                home.addCategory(Intent.CATEGORY_HOME);
+                startActivity(home);*/
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

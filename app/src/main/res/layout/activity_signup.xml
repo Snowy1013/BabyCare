@@ -47,12 +47,12 @@
             android:background="#FFFFFF">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp">
                 <EditText
                     android:id="@+id/et_phone_signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:paddingBottom="20dp"
                     android:layout_toLeftOf="@+id/btn_getcode_signup"
                     android:layout_alignBottom="@+id/btn_getcode_signup"
