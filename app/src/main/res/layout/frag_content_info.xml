@@ -1,46 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/et_search_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_main_btn"
-            android:layout_toLeftOf="@+id/btn_history_info"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="6dp"
-            android:text="资讯"
-            android:gravity="center"/>
-        <ImageView
-            android:id="@+id/btn_history_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/btn_search_info"
-            android:src="@drawable/directional_down"
-            android:layout_alignBottom="@+id/btn_search_info"
-            android:layout_marginRight="20dp"/>
-        <ImageView
-            android:id="@+id/btn_search_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/et_search_info"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/search"/>
-    </RelativeLayout>
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="230dp">
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_img_info"
             android:layout_width="match_parent"

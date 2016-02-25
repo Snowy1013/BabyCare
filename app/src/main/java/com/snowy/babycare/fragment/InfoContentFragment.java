@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -19,9 +18,6 @@ import com.snowy.babycare.adapter.InfoViewPagerAdapter;
  */
 public class InfoContentFragment extends Fragment implements View.OnClickListener{
 
-    private EditText et_search_info;
-    private ImageView btn_history_info;
-    private ImageView btn_search_info;
     private ViewPager vp_img_info;
     private LinearLayout tipsBox_info;//存放提示点的容器
     private ImageView[] tips;//提示性点点数组
@@ -43,13 +39,8 @@ public class InfoContentFragment extends Fragment implements View.OnClickListene
     public void initView(View view){
         //查找控件
         vp_img_info = (ViewPager) view.findViewById(R.id.vp_img_info);
-        et_search_info = (EditText) view.findViewById(R.id.et_search_info);
-        btn_history_info = (ImageView) view.findViewById(R.id.btn_history_info);
-        btn_search_info = (ImageView) view.findViewById(R.id.btn_search_info);
         tipsBox_info = (LinearLayout) view.findViewById(R.id.tipsBox_info);
 
-        btn_history_info.setOnClickListener(this);
-        btn_search_info.setOnClickListener(this);
     }
 
     public void initData() {
@@ -113,12 +104,6 @@ public class InfoContentFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_history_info:
-                //TODO 搜索历史
-                break;
-            case R.id.btn_search_info:
-                //TODO 搜索
-                break;
         }
     }
 }
