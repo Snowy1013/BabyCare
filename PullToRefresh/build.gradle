@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    compile 'com.android.support:support-v4:21.0.3'
+}
+
+android {
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 17
+    }
+
+    compileSdkVersion 22
+    buildToolsVersion "23.0.2"
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+}
