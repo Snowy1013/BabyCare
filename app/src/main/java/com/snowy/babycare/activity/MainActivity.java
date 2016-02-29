@@ -12,11 +12,14 @@ import android.widget.Toast;
 
 import com.snowy.babycare.R;
 import com.snowy.babycare.fragment.FindContentFragment;
-import com.snowy.babycare.fragment.InfoContentFragment;
+import com.snowy.babycare.fragment.InfoContentFragment2;
 import com.snowy.babycare.fragment.LiveContentFragment;
 import com.snowy.babycare.fragment.QaContentFragment;
 import com.snowy.babycare.fragment.ShopContentFragment;
 
+/**
+ *
+ */
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     private Button btn_bottombar_main_info;
@@ -26,11 +29,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private Button btn_bottombar_main_find;
     private Button btn_login;
 
-    private InfoContentFragment infoContentFragment;
+    private InfoContentFragment2 infoContentFragment;
     private QaContentFragment qaContentFragment;
     private LiveContentFragment liveContentFragment;
     private ShopContentFragment shopContentFragment;
     private FindContentFragment findContentFragment;
+
 
     private long exitTime = 0;//返回键两次按下的时间差
 
@@ -80,7 +84,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //开启Fragment事务
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        infoContentFragment = new InfoContentFragment();
+        infoContentFragment = new InfoContentFragment2();
         //使用资讯Fragment替换content
         transaction.replace(R.id.content_main, infoContentFragment);
         //提交事务
@@ -98,7 +102,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.btn_bottombar_main_info:
                 //资讯
                 if(infoContentFragment == null)
-                    infoContentFragment = new InfoContentFragment();
+                    infoContentFragment = new InfoContentFragment2();
                 fragmentTransaction.replace(R.id.content_main, infoContentFragment);
 
                 //把当前选择的按钮设为选中状态，其他按钮为非选中状态
@@ -189,6 +193,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
         fragmentTransaction.commit();
     }
+
 
     /**
      * 捕捉按键的操作

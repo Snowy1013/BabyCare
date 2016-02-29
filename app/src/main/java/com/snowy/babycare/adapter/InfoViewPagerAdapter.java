@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 /**
  * Created by snowy on 16/2/25.
+ * ViewPager加载本地图片，循环滑动
  */
 public class InfoViewPagerAdapter extends PagerAdapter {
     private int[] images;

@@ -18,7 +18,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.snowy.babycare.R;
 import com.snowy.babycare.adapter.InfoListViewAdapter;
-import com.snowy.babycare.adapter.InfoViewPagerAdapter;
+import com.snowy.babycare.adapter.InfoViewPagerAdapter1;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,19 +29,19 @@ import java.util.Map;
 
 /**
  * Created by Snowy on 16/1/20.
- * ViewPager加载本地图片，循环滑动
+ * ViewPager异步加载网络图片
  */
-public class InfoContentFragment extends Fragment implements View.OnClickListener {
+public class InfoContentFragment1 extends Fragment implements View.OnClickListener {
 
     private LinearLayout tipsBox_info;//存放提示点的容器
     private ImageView[] tips;//提示性点点数组
-    private int[] images;//图片ID数组
     private int currentPage = 0;//当前展示的页码
     private PullToRefreshListView lv_info;
     private List<Map<String, Object>> infoList;//ListView中展示的数据集合
     private View viewpager_info;
     private ViewPager vp_img_info;
     private InfoListViewAdapter infoListViewAdapter;
+    private String[] imgUrls;//图片网址数组
 
     @Nullable
     @Override
@@ -153,13 +153,23 @@ public class InfoContentFragment extends Fragment implements View.OnClickListene
         tipsBox_info = (LinearLayout) viewpager_info.findViewById(R.id.tipsBox_info);
         vp_img_info = (ViewPager) viewpager_info.findViewById(R.id.vp_img_info);
 
-        //初始化ImagView的id数组
-        images = new int[]{R.drawable.img1, R.drawable.img2,
-                R.drawable.img3, R.drawable.img4, R.drawable.img5};
+        //初始化ImagView的网址数组
+        imgUrls = new String[]{
+                "http://img01.taopic.com/150308/240486-15030P95K189.jpg",
+                "http://img.taopic.com/uploads/allimg/140201/234793-14020109154626.jpg",
+                "http://img.taopic.com/uploads/allimg/140806/235021-140P60IP178.jpg",
+                "http://img.taopic.com/uploads/allimg/140902/235106-140Z20R03673.jpg",
+                "http://img.taopic.com/uploads/allimg/140817/235034-140QFSK550.jpg",
+                "http://img.taopic.com/uploads/allimg/140201/234793-14020109422645.jpg",
+                "http://img1.juimg.com/141011/330784-14101121520646.jpg",
+                "http://img.taopic.com/uploads/allimg/140201/234793-14020111022647.jpg",
+                "http://pic3.nipic.com/20090602/1101704_100027084_2.jpg",
+                "http://img.juimg.com/tuku/yulantu/131226/328166-13122615544912.jpg"
+        };
         //初始化提示点
         initTips();
 
-        vp_img_info.setAdapter(new InfoViewPagerAdapter(getActivity(), images));
+        vp_img_info.setAdapter(new InfoViewPagerAdapter1(getActivity(), imgUrls));
 
         //更改当前指示点
         vp_img_info.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -185,7 +195,7 @@ public class InfoContentFragment extends Fragment implements View.OnClickListene
          * 一开始设置当前页面为一个很大的数，以至于一开始就能向前滑动
          *
          */
-        int n = Integer.MAX_VALUE / 2 % images.length;
+        int n = Integer.MAX_VALUE / 2 % imgUrls.length;
         int initPosition = Integer.MAX_VALUE / 2 - n;
         vp_img_info.setCurrentItem(initPosition);
 
@@ -193,7 +203,7 @@ public class InfoContentFragment extends Fragment implements View.OnClickListene
 
     //初始化viewpager的指示点
     public void initTips() {
-        tips = new ImageView[5];
+        tips = new ImageView[imgUrls.length];
         for (int i = 0; i < tips.length; i++) {
             ImageView imageView = new ImageView(getActivity());
             imageView.setLayoutParams(new LinearLayout.LayoutParams(10, 10));

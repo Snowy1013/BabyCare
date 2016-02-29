@@ -15,6 +15,7 @@ import java.util.Map;
 
 /**
  * Created by snowy on 16/2/26.
+ * ListView加载本地图片
  */
 public class InfoListViewAdapter extends BaseAdapter {
     private Context context;

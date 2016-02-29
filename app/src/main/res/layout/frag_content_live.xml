@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#eeee00">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="这是直播界面"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:hint="这是直播界面"
+        android:id="@+id/et_live"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:padding="8dp"
+        android:background="@drawable/bg_et_live"/>
+
+    <Button
+        android:id="@+id/btn_live"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/progressbar_live"
+        android:background="@drawable/btn_in_signup"
+        android:text="下载"/>
+
+    <ImageView
+        android:id="@+id/img_live"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_live"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:id="@+id/progressbar_live"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_live"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
 </RelativeLayout>
