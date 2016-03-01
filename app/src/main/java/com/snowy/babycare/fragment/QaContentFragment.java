@@ -20,5 +20,4 @@ public class QaContentFragment extends Fragment {
 
         return inflater.inflate(R.layout.frag_content_qa, container, false);
     }
-
 }
