@@ -1,6 +1,7 @@
 package com.snowy.babycare.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -10,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.snowy.babycare.R;
@@ -24,7 +26,8 @@ public class SignupActivity extends Activity implements View.OnClickListener{
     private Button btn_getcode_signup;
     private Button btn_zhuce_signup;
     private ImageView btn_visible_signup;
-    private CheckBox cb_agreen_signup;
+    private CheckBox cb_agree_signup;
+    private TextView tv_agree_signup;
     private ImageView back_signup;
     private boolean isPwdVisible = false;
 
@@ -43,15 +46,17 @@ public class SignupActivity extends Activity implements View.OnClickListener{
         btn_getcode_signup = (Button) findViewById(R.id.btn_getcode_signup);
         btn_zhuce_signup = (Button) findViewById(R.id.btn_zhuce_signup);
         btn_visible_signup = (ImageView) findViewById(R.id.btn_visible_signup);
-        cb_agreen_signup = (CheckBox) findViewById(R.id.cb_agreen_signup);
+        cb_agree_signup = (CheckBox) findViewById(R.id.cb_agree_signup);
+        tv_agree_signup = (TextView) findViewById(R.id.tv_agree_signup);
         back_signup = (ImageView) findViewById(R.id.back_signup);
 
         btn_getcode_signup.setOnClickListener(this);
         btn_zhuce_signup.setOnClickListener(this);
         btn_visible_signup.setOnClickListener(this);
         back_signup.setOnClickListener(this);
-        cb_agreen_signup.setChecked(true);
-        cb_agreen_signup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        cb_agree_signup.setChecked(true);
+        tv_agree_signup.setOnClickListener(this);
+        cb_agree_signup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 //TODO
@@ -85,7 +90,7 @@ public class SignupActivity extends Activity implements View.OnClickListener{
                 String code = et_code_signup.getText().toString();
                 String pwd = et_pwd_signup.getText().toString();
 
-                if(cb_agreen_signup.isChecked()){
+                if(cb_agree_signup.isChecked()){
                     if(phone.equals("")){
                         Toast.makeText(this, "请输入11位手机号", Toast.LENGTH_SHORT).show();;
                     }else if(code.equals("")){
@@ -111,6 +116,11 @@ public class SignupActivity extends Activity implements View.OnClickListener{
                     et_pwd_signup.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     isPwdVisible = false;
                 }
+                break;
+            case R.id.tv_agree_signup:
+                //用户协议
+//                Intent intent = new Intent();
+                Toast.makeText(this, "《用户协议》", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

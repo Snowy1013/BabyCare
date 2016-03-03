@@ -1,44 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:hint="这是直播界面"
-        android:id="@+id/et_live"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp"
-        android:padding="8dp"
-        android:background="@drawable/bg_et_live"/>
-
-    <Button
-        android:id="@+id/btn_live"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/progressbar_live"
-        android:background="@drawable/btn_in_signup"
-        android:text="下载"/>
-
-    <ImageView
-        android:id="@+id/img_live"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_live"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="这是直播界面"
+        android:id="@+id/tv_live"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal"/>
 
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:id="@+id/progressbar_live"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_live"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn1_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_in_signup"
+            android:text="解析1"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn2_live"
+            android:layout_toRightOf="@+id/btn1_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_in_signup"
+            android:text="解析2"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn3_live"
+            android:layout_toRightOf="@+id/btn1_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_in_signup"
+            android:text="解析3"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/btn4_live"
+            android:layout_toRightOf="@+id/btn1_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_in_signup"
+            android:text="解析4"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_result_live"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:scrollbars="vertical"/>
+</LinearLayout>

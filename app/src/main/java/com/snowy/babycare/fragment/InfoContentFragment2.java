@@ -91,7 +91,7 @@ public class InfoContentFragment2 extends Fragment implements View.OnClickListen
 
     public void initListView(View view) {
         //查找控件
-        lv_info = (PullToRefreshListView) view.findViewById(R.id.lv_info);
+         lv_info = (PullToRefreshListView) view.findViewById(R.id.lv_info);
 
         //初始化ListView数据
         infoList = new ArrayList();
@@ -151,7 +151,7 @@ public class InfoContentFragment2 extends Fragment implements View.OnClickListen
     }
 
     //初始化ListView数据
-    public void initListViewData(){
+    public void initListViewData() {
 
         for (int i = 0; i < imgUrls_lv.length; i++) {
             Map<String, Object> map = new HashMap();

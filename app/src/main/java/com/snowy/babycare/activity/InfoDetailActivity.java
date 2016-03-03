@@ -72,6 +72,8 @@ public class InfoDetailActivity extends Activity {
                 progressBar_info_detail.setProgress(newProgress);
                 if(newProgress == 100){
                     progressBar_info_detail.setVisibility(View.GONE);
+                }else {
+                    progressBar_info_detail.setVisibility(View.VISIBLE);
                 }
             }
         });

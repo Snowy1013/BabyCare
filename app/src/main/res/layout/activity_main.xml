@@ -20,28 +20,22 @@
                 android:id="@+id/content_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#FFFFFF"
                 android:layout_above="@+id/bar_bottom_main"/>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/main_draw_lefts"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="left"
             android:background="#BFEFFF">
             <!--必须有android:layout_gravity="left"，才能有侧拉的效果，否则没有，left或start表示从左边出来-->
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="登录"
-                android:background="@drawable/btn_in_main"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="我是侧拉菜单"/>
+            <include
+                android:id="@+id/draw_left_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/view_member_zone" />
         </RelativeLayout>
     </android.support.v4.widget.DrawerLayout>
 </RelativeLayout>
